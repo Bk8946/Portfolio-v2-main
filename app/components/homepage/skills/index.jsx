@@ -52,7 +52,7 @@ const SKILL_GROUPS = [
       { name: "MongoDB Atlas", icon: "https://devicon-website.vercel.app/api/mongodb/original.svg" },
       { name: "Cloudinary", icon: "/assets/skills/cloudinary.svg" },
       { name: "Firebase", icon: "https://devicon-website.vercel.app/api/firebase/plain.svg" },
-      { name: "Vercel", icon: "/assets/skills/vercel1.svg" },
+      { name: "Vercel", icon: "/assets/skills/vercel.svg" },
       { name: "Netlify", icon: "/assets/skills/netlifyy.svg" },
       { name: "Render", icon: "/assets/skills/render.jpg" },
       { name: "Google cloud Console", icon: "https://devicon-website.vercel.app/api/googlecloud/original.svg" },
