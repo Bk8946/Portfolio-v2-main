@@ -1,14 +1,19 @@
 const path = require('path');
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
 
   images: {
-    
+   
     unoptimized: true,
 
+    
+    domains: ['localhost', 'bharath-kumar-portfolio-kohl.vercel.app'],
+
+    
     remotePatterns: [
       {
         protocol: 'https',
@@ -28,3 +33,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = nextConfig;
