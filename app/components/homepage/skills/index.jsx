@@ -62,7 +62,7 @@ const SKILL_GROUPS = [
     title: "Tools & Technologies",
     items: [
       { name: "VS Code", icon: "https://devicon-website.vercel.app/api/vscode/original.svg" },
-      { name: "Postman", icon: "/assets/skills/postman.svg" },
+      { name: "Postman", icon: "/assets/skills/post.svg" },
       { name: "Thunder Client", icon: "/assets/skills/thunder.jpeg" },
       { name: "npm | pnpm | yarn", icon: "https://devicon-website.vercel.app/api/npm/original-wordmark.svg" },
       { name: "Linux", icon: "https://devicon-website.vercel.app/api/linux/original.svg" },
