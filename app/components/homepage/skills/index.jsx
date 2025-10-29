@@ -14,7 +14,7 @@ const SKILL_GROUPS = [
       { name: "Tailwind CSS", icon: "https://devicon-website.vercel.app/api/tailwindcss/plain.svg" },
       { name: "Bootstrap", icon: "https://devicon-website.vercel.app/api/bootstrap/original.svg" },
       { name: "Redux Toolkit", icon: "https://devicon-website.vercel.app/api/redux/original.svg" },
-      { name: "Vite", icon: "/skills/vitejs.svg" },
+      { name: "Vite", icon: "/assets/skills/vitejs.svg" },
       { name: "Learning Next.js", icon: "https://devicon-website.vercel.app/api/nextjs/original.svg" },
     ],
   },
@@ -23,8 +23,8 @@ const SKILL_GROUPS = [
     items: [
       { name: "Node.js", icon: "https://devicon-website.vercel.app/api/nodejs/original.svg" },
       { name: "Express.js", icon: "https://devicon-website.vercel.app/api/express/original.svg" },
-      { name: "JWT Authentication", icon: "/skills/jwt.svg" },
-      { name: "Bycrypt.js", icon: "/skills/bcrypt.svg" },
+      { name: "JWT Authentication", icon: "/assets/skills/jwt.svg" },
+      { name: "Bycrypt.js", icon: "/assets/skills/bcrypt.svg" },
       { name: "MongoDB & Mongoose", icon: "https://devicon-website.vercel.app/api/mongodb/original.svg" },
       { name: "MySql", icon: "https://devicon-website.vercel.app/api/mysql/original.svg" },
       { name: "REST APIs", icon: "https://devicon-website.vercel.app/api/fastapi/original.svg" },
@@ -34,9 +34,9 @@ const SKILL_GROUPS = [
     title: "UI/UX Design",
     items: [
       { name: "Figma", icon: "https://devicon-website.vercel.app/api/figma/original.svg" },
-      { name: "Responsive Design", icon: "/skills/responsive.svg" },
-      { name: "Wireframing", icon: "/skills/wire.svg" },
-      { name: "Prototyping", icon: "/skills/proto.svg" },
+      { name: "Responsive Design", icon: "/assets/skills/responsive.svg" },
+      { name: "Wireframing", icon: "/assets/skills/wire.svg" },
+      { name: "Prototyping", icon: "/assets/skills/proto.svg" },
       { name: "Canva", icon: "https://devicon-website.vercel.app/api/canva/original.svg" },
       { name: "Adobe Photoshop", icon: "https://devicon-website.vercel.app/api/photoshop/plain.svg" },
       { name: "Adobe Illustrator", icon: "https://devicon-website.vercel.app/api/illustrator/plain.svg" },
@@ -45,16 +45,16 @@ const SKILL_GROUPS = [
   {
     title: "Cloud & DevOps",
     items: [
-      { name: "AWS", icon: "/skills/aws.svg" },
+      { name: "AWS", icon: "/assets/skills/aws.svg" },
       { name: "Docker", icon: "https://devicon-website.vercel.app/api/docker/original.svg" },
       { name: "Git", icon: "https://devicon-website.vercel.app/api/git/original.svg" },
       { name: "GitHub", icon: "https://devicon-website.vercel.app/api/github/original.svg" },
       { name: "MongoDB Atlas", icon: "https://devicon-website.vercel.app/api/mongodb/original.svg" },
-      { name: "Cloudinary", icon: "/skills/cloudinary.svg" },
+      { name: "Cloudinary", icon: "/assets/skills/cloudinary.svg" },
       { name: "Firebase", icon: "https://devicon-website.vercel.app/api/firebase/plain.svg" },
-      { name: "Vercel", icon: "/skills/vercel1.svg" },
-      { name: "Netlify", icon: "/skills/netlifyy.svg" },
-      { name: "Render", icon: "/skills/render.jpg" },
+      { name: "Vercel", icon: "/assets/skills/vercel1.svg" },
+      { name: "Netlify", icon: "/assets/skills/netlifyy.svg" },
+      { name: "Render", icon: "/assets/skills/render.jpg" },
       { name: "Google cloud Console", icon: "https://devicon-website.vercel.app/api/googlecloud/original.svg" },
     ],
   },
@@ -62,23 +62,23 @@ const SKILL_GROUPS = [
     title: "Tools & Technologies",
     items: [
       { name: "VS Code", icon: "https://devicon-website.vercel.app/api/vscode/original.svg" },
-      { name: "Postman", icon: "/skills/postman.svg" },
-      { name: "Thunder Client", icon: "/skills/thunder.jpeg" },
+      { name: "Postman", icon: "/assets/skills/postman.svg" },
+      { name: "Thunder Client", icon: "/assets/skills/thunder.jpeg" },
       { name: "npm | pnpm | yarn", icon: "https://devicon-website.vercel.app/api/npm/original-wordmark.svg" },
       { name: "Linux", icon: "https://devicon-website.vercel.app/api/linux/original.svg" },
       { name: "Chrome Dev Tools", icon: "https://devicon-website.vercel.app/api/chrome/original.svg" },
-      { name: "JSON", icon: "/skills/json.svg" },
-      { name: "Dotenv", icon: "/skills/dotenv.png" },
+      { name: "JSON", icon: "/assets/skills/json.svg" },
+      { name: "Dotenv", icon: "/assets/skills/dotenv.png" },
     ],
   },
   {
     title: "AI Tools & Integrations",
     items: [
-      { name: "OpenAI API ( ChatGpt )", icon: "/skills/chatgpt.svg" },
-      { name: "Github Copilot", icon: "/skills/github-copilot.png" },
-      { name: "Cursor", icon: "/skills/cursor.png" },
-      { name: "Gemini API", icon: "/skills/gemini.png" },
-      { name: "Claude API", icon: "/skills/claude.png" },
+      { name: "OpenAI API ( ChatGpt )", icon: "/assets/skills/chatgpt.svg" },
+      { name: "Github Copilot", icon: "/assets/skills/github-copilot.png" },
+      { name: "Cursor", icon: "/assets/skills/cursor.png" },
+      { name: "Gemini API", icon: "/assets/skills/gemini.png" },
+      { name: "Claude API", icon: "/assets/skills/claude.png" },
       { name: "Figma AI", icon: "https://devicon-website.vercel.app/api/figma/original.svg" },
     ],
   },
@@ -200,47 +200,35 @@ function SkillCard({ title, items, delay = 0 }) {
         </h3>
 
         <div className="flex flex-wrap gap-3">
-       
-
-      {items.map((it) => (
-        it.icon ? (
-          <div
-            key={it.name}
-            className="flex items-center gap-2 bg-[#181C2F]/70 hover:bg-[#222745]/80 
-                      border border-[#2E3250] px-3 py-2 rounded-xl transition-all duration-200"
-          >
-            {it.icon.startsWith("/") ? (
-              // ✅ Local icons (from /public/skills)
-              <img
-                src={it.icon}
-                width="20"
-                height="20"
-                alt={it.name}
-                className="opacity-90"
-              />
-            ) : (
-              // 🌐 Remote icons (from external sources)
-              <Image
-                src={it.icon}
-                width={20}
-                height={20}
-                alt={it.name}
-                className="opacity-90"
-              />
-            )}
-
-            <span className="text-sm text-white/90">{it.name}</span>
-          </div>
-        ) : null
-))}
-
-
-
+          {items.map((it) =>
+            it.icon ? (
+              <div
+                key={it.name}
+                className="flex items-center gap-2 bg-[#181C2F]/70 hover:bg-[#222745]/80 
+                           border border-[#2E3250] px-3 py-2 rounded-xl transition-all duration-200"
+              >
+                <Image
+                  src={it.icon}
+                  width={20}
+                  height={20}
+                  alt={it.name}
+                  unoptimized
+                  onError={(e) => {
+                    e.currentTarget.src =
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/question/question-original.svg";
+                  }}
+                  className="opacity-90"
+                />
+                <span className="text-sm text-white/90">{it.name}</span>
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     </div>
   );
 }
+
 
 
 export default dynamic(() => Promise.resolve(SkillsSection), { ssr: false });
