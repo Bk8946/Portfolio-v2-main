@@ -2,7 +2,7 @@
 
 import React, { useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
-
+import dynamic from "next/dynamic"; 
 const SKILL_GROUPS = [
   {
     title: "Frontend Development",
@@ -116,7 +116,7 @@ function useTilt() {
 }
 
 // ===== Main Section =====
-export default function SkillsSection() {
+function SkillsSection() {
   return (
     <div id="skills" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       {/* Background  */}
@@ -221,3 +221,6 @@ function SkillCard({ title, items, delay = 0 }) {
     </div>
   );
 }
+
+// ✅ Final hydration-safe export
+export default dynamic(() => Promise.resolve(SkillsSection), { ssr: false });

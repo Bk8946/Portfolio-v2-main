@@ -200,10 +200,10 @@ export default function Certifications() {
       </div>
 
       {/* Modal Preview */}
-     {preview && (
+     {/* Modal Preview */}
+{preview && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
     <div className="bg-[#071026] max-w-[1100px] w-full rounded-2xl p-6 relative">
-
       {/* Close Button */}
       <button
         onClick={() => setPreview(null)}
@@ -218,7 +218,8 @@ export default function Certifications() {
             const u = normalizeUrl(preview.url);
             if (!u) return <div className="text-white">No preview available</div>;
             const lower = u.toLowerCase();
-            if (lower.endsWith('.pdf')) {
+
+            if (lower.endsWith(".pdf")) {
               return (
                 <iframe
                   src={u}
@@ -227,51 +228,54 @@ export default function Certifications() {
                 />
               );
             }
+
             return (
-              <image
+              <Image
                 src={u}
                 alt={preview.title}
+                width={1000}
+                height={600}
                 className="w-full rounded-xl border border-indigo-500/30"
               />
             );
           })()}
         </div>
-      <div className="flex flex-col justify-center space-y-2">
-  <h3 className="text-xl font-semibold text-white">{preview.title}</h3>
-  <p className="text-gray-400">{preview.issuer}</p>
-  <p className="text-gray-400">{preview.date}</p>
 
-  {/* Certificate Website Link */}
-  {preview.link && (
-    <a
-      href={preview.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium mt-3 transition-all"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
-        stroke="currentColor"
-        className="w-5 h-5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M13.5 4.5H19.5V10.5M19.5 4.5L9 15M9 9H4.5V19.5H15V15"
-        />
-      </svg>
-      View Certificate Online
-    </a>
-  )}
-</div>
+        <div className="flex flex-col justify-center space-y-2">
+          <h3 className="text-xl font-semibold text-white">{preview.title}</h3>
+          <p className="text-gray-400">{preview.issuer}</p>
+          <p className="text-gray-400">{preview.date}</p>
 
+          {preview.link && (
+            <a
+              href={preview.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium mt-3 transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5H19.5V10.5M19.5 4.5L9 15M9 9H4.5V19.5H15V15"
+                />
+              </svg>
+              View Certificate Online
+            </a>
+          )}
+        </div>
       </div>
     </div>
   </div>
 )}
+
 
     </div>
   );

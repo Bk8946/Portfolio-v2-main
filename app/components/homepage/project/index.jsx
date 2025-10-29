@@ -261,26 +261,36 @@ function Card({
         {/* Split Card Layout */}
         <div className="w-full flex flex-col md:flex-row bg-zinc-900 rounded-2xl overflow-hidden shadow-xl">
           {/* Image Section */}
-          <div className="w-full md:w-[60%] h-[300px] md:h-[450px] lg:h-[500px] relative overflow-hidden">
-            <motion.img
-              src={url}
-              alt={title}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4 }}
-            />
-            <motion.div
-              className="absolute inset-0 pointer-events-none"
-              style={{ backgroundColor: color, mixBlendMode: "overlay" }}
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 0.3 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-black/50 backdrop-blur-md text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">
-              Project {i + 1}
-            </div>
-          </div>
+     {/* Image Section */}
+      <div className="w-full md:w-[60%] h-[300px] md:h-[450px] lg:h-[500px] relative overflow-hidden">
+        <motion.div
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+          className="w-full h-full"
+        >
+          <Image
+            src={url}
+            alt={title}
+            fill
+            className="object-cover"
+            priority={i === 0} // optional optimization
+          />
+        </motion.div>
+
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{ backgroundColor: color, mixBlendMode: "overlay" }}
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 0.3 }}
+          transition={{ duration: 0.3 }}
+        />
+
+        <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-black/50 backdrop-blur-md text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">
+          Project {i + 1}
+        </div>
+      </div>
+
 
           {/* Text Section */}
           <div className="w-full md:w-[40%] p-8 md:p-10 lg:p-12 flex flex-col justify-between">
