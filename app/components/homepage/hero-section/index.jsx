@@ -33,8 +33,8 @@ function HeroSection() {
              {personalData.name}
           </span>
            <br />
-           {`A Passionate and Professional `}
-          <span className="text-[#16f2b3]">{personalData.designation}</span>.
+           {`Certified MERN Full Stack Developer from  `}
+          <span className="text-[#16f2b3]">GUVI IIT-M</span>.
            </h1>
        
           <div className="my-12 flex items-center gap-5">

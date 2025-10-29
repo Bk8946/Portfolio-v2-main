@@ -2,7 +2,7 @@ export const personalData = {
   name: "Bharath kumar",
   profile: '/image/Bk pro.jpg',
   designation: "Full Stack Developer",
-  description: "My name is Bharath Kumar. I’m a professional and enthusiastic programmer with a strong passion for learning and building new things. I’m a quick learner with a self-motivated attitude, always exploring new technologies and improving my skills. I believe in learning something new every day, whether it’s a coding concept, design idea, or soft skill that helps me grow personally and professionally. I enjoy working on all parts of web application development and love creating solutions that make the web more open and accessible. My core expertise is in JavaScript, and I love bringing ideas to life using modern tools and frameworks. I’m open to any job opportunity that allows me to grow, learn, and contribute my skills to meaningful projects.",
+  description: "I'm Bharath Kumar. A passionate developer driven by curiosity and innovation. I thrive on transforming ideas into powerful, interactive web experiences. Constantly exploring the latest technologies, I push my skills further every day — whether it’s mastering new frameworks, refining AI technologies, or optimizing performance.With strong expertise in JavaScript and modern frameworks, I love crafting scalable, efficient, and visually engaging solutions that make an impact. I’m always ready to embrace new challenges, learn continuously, and contribute to projects that shape the future of the web.",
   email: 'bharathbk1110@gmail.com',
   phone: '8072994352',
   address: '171 Main Road, Adavapakkam Village, Kanchipuram district ',
