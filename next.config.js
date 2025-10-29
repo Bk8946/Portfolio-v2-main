@@ -7,13 +7,12 @@ const nextConfig = {
   },
 
   images: {
-   
     unoptimized: true,
-
-    
-    domains: ['localhost', 'bharath-kumar-portfolio-kohl.vercel.app'],
-
-    
+    domains: [
+      'localhost',
+      'bharath-kumar-portfolio-kohl.vercel.app',
+      'devicon-website.vercel.app', 
+    ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -28,6 +27,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'media2.dev.to',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'devicon-website.vercel.app', 
         pathname: '**',
       },
     ],
