@@ -2,6 +2,29 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://bharath-kumar-portfolio-kohl.vercel.app",
+];
+
+export async function OPTIONS(request) {
+  const origin = request.headers.get("origin");
+  if (allowedOrigins.includes(origin)) {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  }
+  return new Response(null, {
+    status: 204,
+    headers: { "Access-Control-Allow-Origin": "*" },
+  });
+}
+
 // Configure Gmail transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -9,12 +32,11 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: process.env.EMAIL_ADDRESS, 
-    pass: process.env.GMAIL_PASSKEY, 
+    user: process.env.EMAIL_ADDRESS,
+    pass: process.env.GMAIL_PASSKEY,
   },
 });
 
-// Send message to Telegram
 async function sendTelegramMessage(token, chatId, message) {
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
   try {
@@ -26,7 +48,6 @@ async function sendTelegramMessage(token, chatId, message) {
   }
 }
 
-// Email template
 function generateEmailTemplate(name, email, userMessage) {
   return `
     <div style="font-family: Arial, sans-serif; padding: 20px;">
@@ -39,7 +60,6 @@ function generateEmailTemplate(name, email, userMessage) {
   `;
 }
 
-// Send email via Nodemailer
 async function sendEmail({ name, email, message }) {
   const mailOptions = {
     from: `"Portfolio" <${process.env.EMAIL_ADDRESS}>`,
@@ -59,23 +79,26 @@ async function sendEmail({ name, email, message }) {
 }
 
 export async function POST(request) {
+  const origin = request.headers.get("origin");
+  const corsHeaders = allowedOrigins.includes(origin)
+    ? { "Access-Control-Allow-Origin": origin }
+    : { "Access-Control-Allow-Origin": "*" };
+
   try {
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
-      return NextResponse.json({ success: false, message: "All fields required." }, { status: 400 });
+      return NextResponse.json(
+        { success: false, message: "All fields required." },
+        { status: 400, headers: corsHeaders }
+      );
     }
 
     const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
     const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 
-    if (!telegramToken || !telegramChatId) {
-      console.error("Missing Telegram credentials");
-    }
-
     const formattedMessage = `💬 New message from ${name}\n\n📧 Email: ${email}\n\n📝 Message:\n${message}`;
 
-    // Run both in parallel
     const [emailSent, telegramSent] = await Promise.all([
       sendEmail({ name, email, message }),
       telegramToken && telegramChatId
@@ -84,12 +107,21 @@ export async function POST(request) {
     ]);
 
     if (emailSent || telegramSent) {
-      return NextResponse.json({ success: true, message: "Message sent successfully!" }, { status: 200 });
+      return NextResponse.json(
+        { success: true, message: "Message sent successfully!" },
+        { status: 200, headers: corsHeaders }
+      );
     } else {
-      return NextResponse.json({ success: false, message: "Failed to send message." }, { status: 500 });
+      return NextResponse.json(
+        { success: false, message: "Failed to send message." },
+        { status: 500, headers: corsHeaders }
+      );
     }
   } catch (error) {
     console.error("Server Error:", error.message);
-    return NextResponse.json({ success: false, message: "Server error occurred." }, { status: 500 });
+    return NextResponse.json(
+      { success: false, message: "Server error occurred." },
+      { status: 500, headers: corsHeaders }
+    );
   }
 }
