@@ -36,6 +36,18 @@ const nextConfig = {
       },
     ],
   },
-};
+   webpack(config) {
+    // ✅ Ensures SVGs and other formats are handled properly
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif|svg)$/i,
+      type: 'asset/resource',
+    });
+    return config;
+  }
+}
+
+
+
+
 
 module.exports = nextConfig;

@@ -200,24 +200,41 @@ function SkillCard({ title, items, delay = 0 }) {
         </h3>
 
         <div className="flex flex-wrap gap-3">
-       {items.map((it) => (
-  it.icon ? (
-        <div
-          key={it.name}
-          className="flex items-center gap-2 bg-[#181C2F]/70 hover:bg-[#222745]/80 
-                    border border-[#2E3250] px-3 py-2 rounded-xl transition-all duration-200"
-        >
-          <Image
-            src={it.icon}
-            width={20}
-            height={20}
-            alt={it.name}
-            className="opacity-90"
-          />
-          <span className="text-sm text-white/90">{it.name}</span>
-        </div>
-      ) : null 
+       
+
+      {items.map((it) => (
+        it.icon ? (
+          <div
+            key={it.name}
+            className="flex items-center gap-2 bg-[#181C2F]/70 hover:bg-[#222745]/80 
+                      border border-[#2E3250] px-3 py-2 rounded-xl transition-all duration-200"
+          >
+            {it.icon.startsWith("/") ? (
+              // ✅ Local icons (from /public/skills)
+              <img
+                src={it.icon}
+                width="20"
+                height="20"
+                alt={it.name}
+                className="opacity-90"
+              />
+            ) : (
+              // 🌐 Remote icons (from external sources)
+              <Image
+                src={it.icon}
+                width={20}
+                height={20}
+                alt={it.name}
+                className="opacity-90"
+              />
+            )}
+
+            <span className="text-sm text-white/90">{it.name}</span>
+          </div>
+        ) : null
 ))}
+
+
 
         </div>
       </div>
