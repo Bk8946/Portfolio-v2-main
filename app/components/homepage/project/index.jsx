@@ -1,10 +1,10 @@
 "use client";
 
-import { ReactLenis } from "@studio-freight/react-lenis";
+import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
-import Image from "next/image"; // ✅ Added for section & blur images
+import Image from "next/image"; 
 
 const projects = [
    {
