@@ -2,23 +2,23 @@
 
 import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import Image from "next/image"; 
+import Image from "next/image";
 
 const projects = [
-   {
+  {
     title: "Fitness Class Booking System",
     description:
-      " A full-stack web application built with React (frontend) and Node.js, Express, and MongoDB (backend). It allows fitness centers to manage class schedules, user registrations, and bookings with real-time updates and secure authentication. (Note: Backend temporarily down due to a MongoDB issue.)",
+      "A full-stack web application built with React (frontend) and Node.js, Express, and MongoDB (backend). It allows fitness centers to manage class schedules, user registrations, and bookings with real-time updates and secure authentication. (Note: Backend temporarily down due to a MongoDB issue.)",
     url: "/projects/bk.jpg",
     color: "#5196fd",
     githubFrontend: "https://github.com/Bk8946/Fitness-Class-Booking-System-frontend.git",
-     githubBackend: "https://github.com/Bk8946/Fitness-Class-Booking-System-backend.git",
+    githubBackend: "https://github.com/Bk8946/Fitness-Class-Booking-System-backend.git",
     liveLink: "https://bkfitnesscenter01.netlify.app/",
   },
   {
-    title: "Rapid Rentels ",
+    title: "Rapid Rentels",
     description:
       "A full-stack web application built with React (frontend) and Node.js/Express (backend). It allows users to browse, list, book, and manage rental properties seamlessly with secure authentication, rich dashboard controls, integrated Stripe payment processing, and RESTful API interaction.",
     url: "/projects/rapidrentel.jpg",
@@ -30,7 +30,7 @@ const projects = [
   {
     title: "Hostel Management System",
     description:
-      "A full-stack web application built with React (frontend) and Node.js/Express/MongoDB (backend) that streamlines hostel operations, including room allocation, Staff management, and payment tracking. (Note: Backend temporarily down due to a MongoDB issue.)",
+      "A full-stack web application built with React (frontend) and Node.js/Express/MongoDB (backend) that streamlines hostel operations, including room allocation, staff management, and payment tracking. (Note: Backend temporarily down due to a MongoDB issue.)",
     url: "/projects/hostel.JPG",
     color: "#ffffff",
     githubFrontend: "https://github.com/Bk8946/Hostel-Management-Frontend-main.git",
@@ -46,7 +46,7 @@ const projects = [
     githubFrontend: "https://github.com/Bk8946/JobPortal-Frontend-main.git",
     liveLink: "https://j-obportal.netlify.app/",
   },
-    {
+  {
     title: "Smart Task Planner",
     description:
       "A productivity web app built with Next.js featuring AI integration to help users organize, prioritize, and manage tasks intelligently with smart suggestions, deadline reminders, and progress tracking.",
@@ -55,7 +55,7 @@ const projects = [
     githubFrontend: "https://github.com/Bk8946/Smart-Task-Planner-main.git",
     liveLink: "https://app.netlify.com/projects/taskplanne-r/overview",
   },
-    {
+  {
     title: "College Placement System",
     description:
       "A full-stack web application built with React (frontend) and Node.js/Express/MongoDB (backend) that streamlines campus recruitment by managing student profiles, job postings, company registrations, and placement tracking efficiently. (Note: Backend temporarily down due to a MongoDB issue.)",
@@ -65,7 +65,7 @@ const projects = [
     githubBackend: "https://github.com/Bk8946/College-Placement-Management-Backend-main.git",
     liveLink: "https://clgplcmgnt.netlify.app/home",
   },
-    {
+  {
     title: "AskMeIdentity Landing Page",
     description:
       "A modern, responsive landing page built with HTML and Tailwind CSS that showcases brand identity and services through a sleek UI, smooth animations, and optimized performance for an engaging user experience.",
@@ -74,7 +74,7 @@ const projects = [
     githubFrontend: "https://github.com/Bk8946/Askmeidentity-LandingPage.git",
     liveLink: "https://askmeidentity-landingpage.netlify.app/",
   },
-    {
+  {
     title: "Travelling Landing Page",
     description:
       "A responsive travel-themed landing page built with HTML and CSS, featuring a modern design, smooth animations, and optimized performance to deliver an engaging user experience.",
@@ -83,7 +83,7 @@ const projects = [
     githubFrontend: "https://github.com/Bk8946/Trabook-landingPage.git",
     liveLink: "https://tvlnglandingpage.netlify.app/",
   },
-    {
+  {
     title: "Budget Manager",
     description:
       "A responsive web app that helps users manage income, expenses, and savings efficiently. Built with modern frontend technologies for a clean and intuitive user experience.",
@@ -92,17 +92,17 @@ const projects = [
     githubFrontend: "https://github.com/Bk8946/Budget-Tracker.git",
     liveLink: "https://budgettrackertask4.netlify.app/",
   },
-    {
+  {
     title: "Password Reset Flow",
     description:
-      "Full-stack implementation of a secure password reset process. The front-end is built with React and Vite, delivering a smooth user experience, while the back-end handles token generation, validation, and email delivery via a robust Node.js API. Together they demonstrate end-to-end security and user-authentication best practices.(Note: Backend temporarily down due to a MongoDB issue.)",
+      "Full-stack implementation of a secure password reset process. The front-end is built with React and Vite, delivering a smooth user experience, while the back-end handles token generation, validation, and email delivery via a robust Node.js API.",
     url: "/projects/pswrd.JPG",
     color: "#005547ff",
-   githubFrontend: "https://github.com/Bk8946/PasswordResetFlow-frontend.git",
+    githubFrontend: "https://github.com/Bk8946/PasswordResetFlow-frontend.git",
     githubBackend: "https://github.com/Bk8946/PasswordResetFlow-backend.git",
     liveLink: "https://passwordresetflow1.netlify.app/",
   },
-    {
+  {
     title: "E-Commerce Website",
     description:
       "A fully responsive React-based online store built with React Router for smooth navigation. Features dynamic product listings, cart management, and a clean, user-friendly interface.",
@@ -120,7 +120,8 @@ export default function Projects() {
     offset: ["start start", "end end"],
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    if (typeof window === "undefined") return; // guard SSR
     const style = document.createElement("style");
     style.textContent = `
       @media screen and (width: 1366px) and (height: 768px),
@@ -166,7 +167,6 @@ export default function Projects() {
   return (
     <ReactLenis root>
       <main ref={container} className="relative">
-        {/*  Background  */}
         <Image
           src="/section.svg"
           alt="section background"
@@ -175,7 +175,7 @@ export default function Projects() {
           className="absolute top-0 -z-10"
         />
 
-        {/*  Title styled  */}
+        {/* Title */}
         <div className="flex justify-center -translate-y-[1px] mt-20">
           <div className="w-3/4">
             <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent w-full" />
@@ -184,11 +184,11 @@ export default function Projects() {
 
         <div className="flex justify-center my-5 lg:py-8">
           <div className="flex items-center">
-            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+            <span className="w-24 h-[2px] bg-[#1a1443]" />
             <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
               Projects
             </span>
-            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+            <span className="w-24 h-[2px] bg-[#1a1443]" />
           </div>
         </div>
 
@@ -249,48 +249,46 @@ function Card({
         className="relative -top-[20%] h-auto w-[98%] md:w-[95%] lg:w-[90%] xl:w-[88%] origin-top project-card"
         whileHover={{ y: -8, transition: { duration: 0.3 } }}
       >
-        {/*  Blur overlay  */}
+        {/* Blur overlay */}
         <Image
           src="/blur-23.svg"
           alt="blur overlay"
           width={1080}
           height={200}
-           className="absolute bottom-0 opacity-80 pointer-events-none"
+          className="absolute bottom-0 opacity-80 pointer-events-none"
         />
 
-        {/* Split Card Layout */}
+        {/* Split Card */}
         <div className="w-full flex flex-col md:flex-row bg-zinc-900 rounded-2xl overflow-hidden shadow-xl">
           {/* Image Section */}
-     {/* Image Section */}
-      <div className="w-full md:w-[60%] h-[300px] md:h-[450px] lg:h-[500px] relative overflow-hidden">
-        <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.4 }}
-          className="w-full h-full"
-        >
-          <Image
-            src={url}
-            alt={title}
-            fill
-            className="object-cover"
-            priority={i === 0} // optional optimization
-          />
-        </motion.div>
+          <div className="w-full md:w-[60%] h-[300px] md:h-[450px] lg:h-[500px] relative overflow-hidden">
+            <motion.div
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <Image
+                src={url}
+                alt={title}
+                fill
+                className="object-cover"
+                priority={i === 0}
+              />
+            </motion.div>
 
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          style={{ backgroundColor: color, mixBlendMode: "overlay" }}
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 0.3 }}
-          transition={{ duration: 0.3 }}
-        />
+            <motion.div
+              className="absolute inset-0 pointer-events-none"
+              style={{ backgroundColor: color, mixBlendMode: "overlay" }}
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 0.3 }}
+              transition={{ duration: 0.3 }}
+            />
 
-        <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-black/50 backdrop-blur-md text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">
-          Project {i + 1}
-        </div>
-      </div>
-
+            <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-black/50 backdrop-blur-md text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">
+              Project {i + 1}
+            </div>
+          </div>
 
           {/* Text Section */}
           <div className="w-full md:w-[40%] p-8 md:p-10 lg:p-12 flex flex-col justify-between">
@@ -313,7 +311,6 @@ function Card({
 
             <div className="mt-4 md:mt-auto pt-4">
               <div className="w-full h-[1px] bg-gray-800 mb-4 md:mb-6" />
-
               <div className="flex items-center gap-4">
                 {githubFrontend && (
                   <LinkButton
@@ -331,12 +328,7 @@ function Card({
                     icon="github"
                   />
                 )}
-                <LinkButton
-                  href={liveLink}
-                  color={color}
-                  label="Live"
-                  icon="globe"
-                />
+                <LinkButton href={liveLink} color={color} label="Live" icon="globe" />
               </div>
             </div>
           </div>

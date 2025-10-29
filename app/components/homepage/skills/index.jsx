@@ -15,14 +15,14 @@ const SKILL_GROUPS = [
       { name: "Bootstrap", icon: "/skills/bootstrap.svg" },
       { name: "Redux Toolkit", icon: "/skills/redux.svg" },
       { name: "Vite", icon: "/skills/vitejs.svg" },
-      { name: "Learning Next.js", icon: "/skills/nextJS.svg" },
+      { name: "Learning Next.js", icon: "/skills/nextjs.svg" },
     ],
   },
   {
     title: "Backend Development",
     items: [
       { name: "Node.js", icon: "/skills/node.svg" },
-      { name: "Express.js", icon: "/skills/Express.svg" },
+      { name: "Express.js", icon: "/skills/express.svg" },
       { name: "JWT Authentication", icon: "/skills/jwt.svg" },
       { name: "Bycrypt.js", icon: "/skills/bcrypt.svg" },
       { name: "MongoDB & Mongoose", icon: "/skills/mongodb.svg" },
@@ -36,7 +36,7 @@ const SKILL_GROUPS = [
       { name: "Figma", icon: "/skills/figma-icon.svg" },
       { name: "Responsive Design", icon: "/skills/responsive.svg" },
       { name: "Wireframing", icon: "/skills/wire.svg" },
-      { name: "Prototyping", icon: "/skills/Proto.svg" },
+      { name: "Prototyping", icon: "/skills/proto.svg" },
       { name: "Canva", icon: "/skills/canva.svg" },
       { name: "Adobe Photoshop", icon: "/skills/photoshop.svg" },
       { name: "Adobe Illustrator", icon: "/skills/illustrator.svg" },
@@ -55,17 +55,17 @@ const SKILL_GROUPS = [
       { name: "Vercel", icon: "/skills/vercel1.svg" },
       { name: "Netlify", icon: "/skills/netlifyy.svg" },
       { name: "Render", icon: "/skills/render.jpg" },
-      { name: "Google cloud Console", icon: "/skills/Google Cloud.svg" },
+      { name: "Google cloud Console", icon: "/skills/googlecloud.svg" },
     ],
   },
   {
     title: "Tools & Technologies",
     items: [
-      { name: "VS Code", icon: "/skills/vs code.svg" },
+      { name: "VS Code", icon: "/skills/vscode.svg" },
       { name: "Postman", icon: "/skills/postman.svg" },
       { name: "Thunder Client", icon: "/skills/thunder.jpeg" },
-      { name: "npm | pnpm | yarn", icon: "/skills/NPM.svg" },
-      { name: "Linux", icon: "/skills/Linux.svg" },
+      { name: "npm | pnpm | yarn", icon: "/skills/npm.svg" },
+      { name: "Linux", icon: "/skills/linux.svg" },
       { name: "Chrome Dev Tools", icon: "/skills/chrome.svg" },
       { name: "JSON", icon: "/skills/json.svg" },
       { name: "Dotenv", icon: "/skills/dotenv.png" },
@@ -222,5 +222,5 @@ function SkillCard({ title, items, delay = 0 }) {
   );
 }
 
-// ✅ Final hydration-safe export
+
 export default dynamic(() => Promise.resolve(SkillsSection), { ssr: false });

@@ -199,7 +199,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* Modal Preview */}
+      
      {/* Modal Preview */}
 {preview && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
