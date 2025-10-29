@@ -206,19 +206,13 @@ function SkillCard({ title, items, delay = 0 }) {
               className="flex items-center gap-2 bg-[#181C2F]/70 hover:bg-[#222745]/80 
                          border border-[#2E3250] px-3 py-2 rounded-xl transition-all duration-200"
             >
-             <Image
+                  <Image
             src={it.icon}
             width={20}
             height={20}
             alt={it.name}
             className="opacity-90"
-            onError={(e) => {
-             
-              const target = e.target;
-              target.onerror = null; 
-              target.src = "/skills/default.svg"; 
-            }}
-/>
+          />
               <span className="text-sm text-white/90">{it.name}</span>
             </div>
           ))}
